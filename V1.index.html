@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XBOSoft | QA Management Expert</title>
+    <style>
+        /* 1. 基础全局样式（现代简约白设计语言） */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --accent-orange: #f47c20; /* 提取自Logo的现代橙色 */
+            --border-color: #eaeaea;
+            --max-width: 1140px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 2. 导航栏 Header */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .contact-btn {
+            background-color: var(--accent-orange);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .contact-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* 3. 顶部 Banner 区域 */
+        .hero-section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-orange);
+            margin-bottom: 16px;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 760px;
+            margin: 0 auto 40px;
+        }
+
+        /* 4. 核心优势区域 */
+        .advantages-section {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: var(--max-width);
+            margin: 0 auto 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .grid-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .advantage-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.04);
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .advantage-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .sub-list {
+            margin-top: 12px;
+            list-style: none;
+        }
+
+        .sub-list li {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sub-list li::before {
+            content: "•";
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+
+        /* 5. 产品与服务区域（包含选项卡无缝互动） */
+        .services-section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--text-main);
+            color: var(--bg-primary);
+            border-color: var(--text-main);
+        }
+
+        .tab-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-header {
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+
+        .tab-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            list-style: none;
+        }
+
+        .feature-list li {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-list li span.detail {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        /* 6. 页脚 Footer 区域 */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            text-align: center;
+            background-color: var(--bg-primary);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--accent-orange);
+            text-decoration: underline;
+        }
+
+        /* 动画与响应式断点 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.5rem; }
+            .hero-section p { font-size: 1.1rem; }
+            .tab-content { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏区域 -->
+    <header>
+        <div class="nav-container">
+            <a href="https://xbosoft.com/" class="logo-box" target="_blank">
+                <!-- 引用您提供的logo图片 -->
+                <img src="data:image/png;base64,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" class="logo-img">
+                <span>XBOSoft</span>
+            </a>
+            <a href="https://xbosoft.com/" class="contact-btn" target="_blank">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- 顶部 Banner 区域 -->
+    <section class="hero-section">
+        <div class="hero-tag">QA Management Expert</div>
+        <h1>Redefining Software QA with XBOSoft</h1>
+        <p>From precise testing to strategic QA management—transforming your software quality assessment framework with stability and expert leadership.</p>
+        <a href="https://xbosoft.com/" class="contact-btn" style="padding: 14px 32px; font-size: 1rem; border-radius: 30px;" target="_blank">Get Started</a>
+    </section>
+
+    <!-- 核心优势区域 -->
+    <section class="advantages-section">
+        <div class="section-title">
+            <h2>Our Core Advantages</h2>
+        </div>
+        
+        <div class="grid-container">
+            <!-- 优势 1 -->
+            <div class="advantage-card">
+                <div class="card-icon">⏱️</div>
+                <h3>20 Years Experience</h3>
+                <p>Two decades of professional testing experience and deep industrial technical expertise since establishment.</p>
+            </div>
+
+            <!-- 优势 2 -->
+            <div class="advantage-card">
+                <div class="card-icon">👥</div>
+                <h3>Expert QA Team</h3>
+                <p>Highly professional and trained QA teams dedicated to seamlessly integrating with your work progress.</p>
+            </div>
+
+            <!-- 优势 3 -->
+            <div class="advantage-card">
+                <div class="card-icon">💼</div>
+                <h3>Diverse Projects</h3>
+                <p>Rich and solid hands-on experience covering multi-tier domains:</p>
+                <ul class="sub-list">
+                    <li>Finance Testing</li>
+                    <li>Game Testing</li>
+                    <li>E-Commerce Testing</li>
+                    <li>Healthcare</li>
+                </ul>
+            </div>
+
+            <!-- 优势 4 -->
+            <div class="advantage-card">
+                <div class="card-icon">🤝</div>
+                <h3>Loyalty & Trust</h3>
+                <p>Highly trusted by global clients for our precise execution, transparent reporting, and strategic support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品与服务区域（带动态交互Tab组件） -->
+    <section class="services-section">
+        <div class="section-title">
+            <h2>Products & Services</h2>
+            <p style="font-size:1rem; color:var(--text-muted); margin-top:10px;">Click the buttons below to explore our versatile tools and testing services.</p>
+        </div>
+
+        <!-- 选项卡按钮 -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab(event, 'testvia')">testvia (Jira Plugin)</button>
+            <button class="tab-btn" onclick="switchTab(event, 'full-range')">Full-range Testing</button>
+            <button class="tab-btn" onclick="switchTab(event, 'compliance')">Regulatory Compliance</button>
+        </div>
+
+        <!-- 选项卡内容 1: testvia -->
+        <div id="testvia" class="tab-content active">
+            <div class="tab-header">
+                <h3>testvia — Proprietary QA Management Platform</h3>
+            </div>
+            <ul class="feature-list">
+                <li>🧠 Understand System<span class="detail">Seamlessly map out application workflows through test case and structural tickets analysis.</span></li>
+                <li>🔍 System Scan<span class="detail">Comprehensive inspection and architecture scanning to locate bottlenecks early.</span></li>
+                <li>📅 Test Plan Automation<span class="detail">Intelligent plan generation coordinated flawlessly according to the release plan.</span></li>
+                <li>🎯 Target Distribution<span class="detail">Pick up the specific test cases that individual teams need to analyze.</span></li>
+                <li>🛠 Script Frameworks<span class="detail">Help development teams efficiently build solid automation test scripts.</span></li>
+            </ul>
+        </div>
+
+        <!-- 选项卡内容 2: Full-range -->
+        <div id="full-range" class="tab-content">
+            <div class="tab-header">
+                <h3>Full-range Quality Assurance Testing</h3>
+            </div>
+            <ul class="feature-list">
+                <li>⚙️ Functional Testing</li>
+                <li>🤖 Automation Testing</li>
+                <li>♿ Accessibility Testing</li>
+                <li>🔒 Security Testing</li>
+                <li>⚡ Performance Testing</li>
+                <li>👥 User Acceptance Testing (UAT)</li>
+                <li>📱 Different Device Testing<span class="detail">Comprehensive coverage across multiple mobile devices.</span></li>
+                <li>💻 Desktop Coverages<span class="detail">Native environment execution on Windows and Mac platforms.</span></li>
+            </ul>
+        </div>
+
+        <!-- 选项卡内容 3: Compliance -->
+        <div id="compliance" class="tab-content">
+            <div class="tab-header">
+                <h3>Regulatory Compliance Verification</h3>
+            </div>
+            <ul class="feature-list">
+                <li>💳 Financial Security<span class="detail">Regulatory compliance verification for PCI-DSS & GDPR frameworks.</span></li>
+                <li>🏥 Healthcare Standards<span class="detail">Strict regulatory compliance verification adhering to HIPAA & FDA standards.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 页脚区域 -->
+    <footer>
+        <p>© 2026 <a href="https://xbosoft.com/" target="_blank">XBOSoft, Inc.</a> | All Rights Reserved</p>
+    </footer>
+
+    <!-- 原生交互 JavaScript 代码 -->
+    <script>
+        function switchTab(event, tabId) {
+            // 1. 隐藏所有选项卡内容
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // 2. 移除所有导航按钮的激活样式
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // 3. 激活当前选中的选项卡和按钮
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
